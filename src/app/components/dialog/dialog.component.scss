@@ -1,0 +1,27 @@
+.mat-mdc-dialog-actions {
+    justify-content: center;
+    gap: 20px;
+    display: flex;
+    padding: 20px 10px;
+}
+
+.dialog-content {
+    color: #142559;
+    padding: 40px 10px;
+}
+
+.mdc-button[color="primary"] {
+    background-color: #ffdd03 !important;
+    color: #142559 !important;
+    font-weight: bold;
+    height: 40px;
+    width: 150px;
+}
+
+.mdc-button[color="secundary"] {
+    background-color: #f1f6f9 !important;
+    color: #142559 !important;
+    font-weight: bold;
+    height: 40px;
+    width: 150px;
+}

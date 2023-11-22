@@ -1,1 +1,72 @@
-<p>form works!</p>
+<div class="form-container" [ngClass]="{'form-container-wide': columnas === 1}">
+    <div class="title">
+        <h1>Formulario de Registro</h1>
+    </div>
+    <mat-divider></mat-divider>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <mat-grid-list cols="{{columnas}}" rowHeight="90px">
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width: 90%">
+                    <input matInput formControlName="id" placeholder="Id">
+                    <mat-error *ngIf="productForm.get('id')?.invalid">ID no válido!</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+
+                <mat-form-field appearance="outline" style="width: 90%">
+                    <input matInput formControlName="name" placeholder="Nombre">
+                    <mat-error *ngIf="productForm.get('name')?.invalid">Nombre no válido!</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+
+                <mat-form-field appearance="outline" style="width: 90%">
+                    <input matInput formControlName="description" placeholder="Descripcion">
+                    <mat-error *ngIf="productForm.get('description')?.invalid">Descripcion no válido!</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width: 90%">
+                    <input matInput formControlName="logo" placeholder="Logo">
+                    <mat-error *ngIf="productForm.get('logo')?.invalid">Este campo es requerido!</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width: 90%">
+                    <mat-label>Fecha de Lanzamiento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date_release" [min]="minDate"
+                        (dateChange)="changeTest($event.value)">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="productForm.get('date_release')?.invalid">Fecha requerida!</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width: 90%">
+                    <mat-label>Fecha de Revision</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="date_revision">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button mat-raised-button color="secundary" (click)="resetForm()">
+                    Reiniciar
+                </button>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">
+                    Guardar
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
