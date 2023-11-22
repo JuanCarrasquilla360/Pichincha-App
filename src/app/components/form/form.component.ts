@@ -102,14 +102,28 @@ export class FormComponent {
       if (localStorage.getItem('products')) {
         this.dataFromStorage = JSON.parse(localStorage.getItem('products') || "");
         if (this.dataFromStorage.length === 0) return
+        const productFromStorage = this.dataFromStorage.find((val) => val.id === this.id)
+        if (!productFromStorage) {
+          this.snackBar.open("Producto con ese ID no encontrado", undefined, {
+            verticalPosition: "bottom", duration: 2000
+          })
+          return
+        }
         // @ts-ignore
-        this.productForm.setValue(this.dataFromStorage.find((val) => val.id === this.id))
+        this.productForm.setValue(productFromStorage)
       } else {
         getProducts().then(data => {
           this.dataFromStorage = data
           if (this.dataFromStorage.length === 0) return
+          const productFromStorage = this.dataFromStorage.find((val) => val.id === this.id)
+          if (!productFromStorage) {
+            this.snackBar.open("Producto con ese ID no encontrado", undefined, {
+              verticalPosition: "bottom", duration: 2000
+            })
+            return
+          }
           // @ts-ignore
-          this.productForm.setValue(this.dataFromStorage.find((val) => val.id === this.id))
+          this.productForm.setValue(productFromStorage)
         })
       }
     }
@@ -158,6 +172,6 @@ export class FormComponent {
   }
 
   resetForm() {
-    this.productForm.reset()
+    this.productForm.reset({ id: this.id ? this.id : "" })
   }
 }
