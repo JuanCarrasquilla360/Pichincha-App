@@ -157,11 +157,19 @@ export class FormComponent {
         if (isPlatformBrowser(this.platformId)) {
           localStorage.setItem('products', JSON.stringify(this.dataFromStorage));
         }
+      }).catch((e)=> {
+        this.snackBar.open("No se pudo actualizar el producto", undefined, {
+          duration: 2000, verticalPosition: "bottom"
+        })
       })
       return
     }
     sendProduct({ ...this.productForm.getRawValue() }).then(() => {
       this.snackBar.open("Producto creado exitosamente", undefined, {
+        duration: 2000, verticalPosition: "bottom"
+      })
+    }).catch((e)=> {
+      this.snackBar.open("No se pudo actualizar el producto", undefined, {
         duration: 2000, verticalPosition: "bottom"
       })
     })

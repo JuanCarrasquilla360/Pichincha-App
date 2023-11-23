@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponent should match with snapshot 1`] = `
+<div
+  id="root1"
+>
+  <app-header>
+    <header>
+      <div
+        class="logo"
+      >
+        <a
+          href="/"
+        >
+          <img
+            src="assets/img/logo-header.jpg"
+          />
+        </a>
+      </div>
+    </header>
+  </app-header>
+  <app-content>
+    <div
+      class="content"
+    >
+      <router-outlet />
+      
+    </div>
+  </app-content>
+  <router-outlet />
+  
+</div>
+`;

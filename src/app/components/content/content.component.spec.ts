@@ -5,6 +5,7 @@ import { ContentComponent } from './content.component';
 describe('ContentComponent', () => {
   let component: ContentComponent;
   let fixture: ComponentFixture<ContentComponent>;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,9 +16,13 @@ describe('ContentComponent', () => {
     fixture = TestBed.createComponent(ContentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.nativeElement;
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+  test('should match with snapshot', () => {
+    expect(compiled).toMatchSnapshot();
   });
 });

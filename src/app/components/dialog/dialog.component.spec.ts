@@ -5,6 +5,7 @@ import { DialogComponent } from './dialog.component';
 describe('DialogComponent', () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,9 +16,13 @@ describe('DialogComponent', () => {
     fixture = TestBed.createComponent(DialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.nativeElement;
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+  test('should match with snapshot', () => {
+    expect(compiled).toMatchSnapshot();
   });
 });

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentComponent should match with snapshot 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="content"
+  >
+    <router-outlet />
+    
+  </div>
+</div>
+`;

@@ -88,6 +88,10 @@ export class ListComponent implements AfterViewInit {
           this.snackBar.open("Producto eliminado exitosamente", undefined, {
             duration: 2000, verticalPosition: "bottom"
           })
+        }).catch((e)=> {
+          this.snackBar.open("No se pudo eliminar el producto", undefined, {
+            duration: 2000, verticalPosition: "bottom"
+          })
         })
       }
     });

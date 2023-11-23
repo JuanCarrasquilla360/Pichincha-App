@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListComponent should match with snapshot 1`] = `
+<div
+  id="root1"
+>
+  <div>
+    <div
+      class="loader skeleton"
+    />
+  </div>
+  
+  
+</div>
+`;

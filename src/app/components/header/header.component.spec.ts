@@ -5,6 +5,8 @@ import { HeaderComponent } from './header.component';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
+  let compiled: HTMLElement;
+  
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,9 +17,13 @@ describe('HeaderComponent', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.nativeElement;
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+  test('should match with snapshot', () => {
+    expect(compiled).toMatchSnapshot();
   });
 });
